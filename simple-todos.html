@@ -12,12 +12,12 @@
         Hide Completed Tasks
       </label>
 
-     <!--{{> loginButtons}}
-            {{#if currentUser}}-->
+     {{> loginButtons}}
+            {{#if currentUser}}
 
         <form class="new-task">
-        	<p class="Personaldata">Personal data</p>
-        	<table class="text-col clearfix" border="1">
+        	<p class="Paragtitle">Personal data</p>
+        	<table border="1">
 		  		<tr>
 		  			<td>First name</td>
 		  			<td colspan=2><input type="text" id="finame" placeholder="Type your first name" /></td>
@@ -51,9 +51,111 @@
 		  		</tr>
 		  		<tr>
 		  			<td>Social insurance number (AHV/AVS)</td>
-		  			<td colspan=2><input type="text" pattern="\d*" maxlength="13" id="ahv" placeholder="Type your AHV/AVS number" /></td>
+		  			<td colspan=2><input type="text" pattern="\d*" maxlength="13" id="ahv" placeholder="Type your AHV nbr (13 characters)" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Start sate</td>
+		  			<td colspan=2><input type="date" id="sdate" placeholder="Type your start date" /></td>
 		  		</tr>
 		  	</table>
+
+		  	<p class="Paragtitle">Family data</p>
+        	<table border="1">
+		  		<tr>
+		  			<td>Date of marriage</td>
+		  			<td colspan=2><input type="date" id="mdate" placeholder="Type your marriage date" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Spouse name</td>
+		  			<td><input type="text" id="sfaname" placeholder="Type your spouse first name" /></td>
+		  			<td><input type="text" id="sfiname" placeholder="Type your spouse family name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Child 1 name, date of birth</td>
+		  			<td><input type="text" id="ch1name" placeholder="Type your child 1 first name" /></td>
+		  			<td><input type="date" id="ch1bdate" placeholder="Type your child 1 birth date" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Child 2 name, date of birth</td>
+		  			<td><input type="text" id="ch2name" placeholder="Type your child 2 first name" /></td>
+		  			<td><input type="date" id="ch2bdate" placeholder="Type your child 2 birth date" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Child 3 name, date of birth</td>
+		  			<td><input type="text" id="ch3name" placeholder="Type your child 3 first name" /></td>
+		  			<td><input type="date" id="ch3bdate" placeholder="Type your child 3 birth date" /></td>
+		  		</tr>
+		  	</table>
+
+		  	<p class="Paragtitle">Emergency</p>
+        	<table class="text-col clearfix" border="1">
+		  		<tr>
+		  			<td>Name</td>
+		  			<td>Relation</td>
+		  			<td>Phone number</td>
+		  		</tr>
+		  		<tr>
+		  			<td><input type="text" id="em1name" placeholder="Type here" /></td>
+		  			<td><input type="text" id="relation1" placeholder="Type here" /></td>
+		  			<td><input type="text" id="phone1" placeholder="Type here" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td><input type="text" id="em2name" placeholder="Type here" /></td>
+		  			<td><input type="text" id="relation2" placeholder="Type here" /></td>
+		  			<td><input type="text" id="phone2" placeholder="Type here" /></td>
+		  		</tr>
+		  	</table>
+
+		  	<p class="Paragtitle">Bank account for salary payments (CHF)</p>
+        	<table border="1">
+		  		<tr>
+		  			<td>Bank name</td>
+		  			<td colspan=2><input type="text" id="bankname" placeholder="Type your bank name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Place, ZIP</td>
+		  			<td><input type="text" id="bankplace" placeholder="Type your bank place" /></td>
+		  			<td><input type="text" id="bankzip" placeholder="Type your bank ZIP" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Clearing/IBAN</td>
+		  			<td colspan=2><input type="text" id="iban" maxlength="21" placeholder="Type your IBAN" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Account number</td>
+		  			<td colspan=2><input type="text" id="accnbr" placeholder="Type your account number" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>In the name of</td>
+		  			<td colspan=2><input type="text" id="accname" placeholder="Type your account name" /></td>
+		  		</tr>
+		  	</table>
+
+		  	<p class="Paragtitle">Bank account for salary payments (EUR)</p>
+        	<table border="1">
+		  		<tr>
+		  			<td>Bank name</td>
+		  			<td colspan=2><input type="text" id="eurbankname" placeholder="Type your bank name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Place, ZIP</td>
+		  			<td><input type="text" id="eurbankplace" placeholder="Type your bank place" /></td>
+		  			<td><input type="text" id="eurbankzip" placeholder="Type your bank ZIP" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Clearing/IBAN</td>
+		  			<td colspan=2><input type="text" id="euriban" maxlength="21" placeholder="Type your IBAN" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Account number</td>
+		  			<td colspan=2><input type="text" id="euraccnbr" placeholder="Type your account number" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>In the name of</td>
+		  			<td colspan=2><input type="text" id="euraccname" placeholder="Type your account name" /></td>
+		  		</tr>
+		  	</table>
+		  		   
 		  		   <!--Last name: <br>
 		  		   Position: <br>
 		  		   Phone number: +41 </p>
@@ -70,7 +172,7 @@
         </form>
 
 
-      <!--{{/if}}-->
+      {{/if}}
     </header>
     
     <ul>
