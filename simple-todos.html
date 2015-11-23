@@ -1,0 +1,91 @@
+<head>
+  <title>Employee Profile</title>
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <h1>Employee Profile <!--({{incompleteCount}})--></h1>
+      
+      <label class="hide-completed">
+        <input type="checkbox" checked="{{hideCompleted}}" />
+        Hide Completed Tasks
+      </label>
+
+     <!--{{> loginButtons}}
+            {{#if currentUser}}-->
+
+        <form class="new-task">
+        	<p class="Personaldata">Personal data</p>
+        	<table class="text-col clearfix" border="1">
+		  		<tr>
+		  			<td>First name</td>
+		  			<td colspan=2><input type="text" id="finame" placeholder="Type your first name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Family name</td>
+		  			<td colspan=2><input type="text" id="faname" placeholder="Type your family name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td valign=middle>Address</td>
+		  			<td colspan=2><input type="text" id="street" placeholder="Type your street name, nb" /><br>
+		  			<input type="text" id="zip" placeholder="Type your ZIP number" /><br>
+		  			<input type="text" id="city" placeholder="Type your city name" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Nationality</td>
+		  			<td><input type="text" id="nationality" placeholder="Type your nationality" /></td>
+		  			<td align=middle>Source tax?<input  type="checkbox" checked="{{sourcetaxed}}" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Domicile number: +41(0)</td>
+		  			<td colspan=2><input type="text" pattern="\d*" maxlength="9" id="dnumber" placeholder="Type your domicile number" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Mobile number: +41(0)</td>
+		  			<td colspan=2><input type="text" pattern="\d*" maxlength="9" id="mnumber" placeholder="Type your mobile number" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Date of birth</td>
+		  			<td colspan=2><input type="date" id="birth" placeholder="Type your birthdate" /></td>
+		  		</tr>
+		  		<tr>
+		  			<td>Social insurance number (AHV/AVS)</td>
+		  			<td colspan=2><input type="text" pattern="\d*" maxlength="13" id="ahv" placeholder="Type your AHV/AVS number" /></td>
+		  		</tr>
+		  	</table>
+		  		   <!--Last name: <br>
+		  		   Position: <br>
+		  		   Phone number: +41 </p>
+		  	</section>
+        	
+        	<section class="input-col clearfix">
+        	<input type="text" name="text" placeholder="Type your first name" />
+        	<p>
+        		<input type="text" id="fname" placeholder="Type your first name" /><br>
+		    	<input type="text" id="lname" placeholder="Type your family name" /><br>
+		    	<input type="text" id="position"><br>
+		    	<input type="number" id="phone"></p>
+		    </section>-->
+        </form>
+
+
+      <!--{{/if}}-->
+    </header>
+    
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="task">
+  
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+  </li>
+</template>
