@@ -7,13 +7,15 @@
     <header>
       <h1>Employee Profile <!--({{incompleteCount}})--></h1>
       
+
+
+   <!--  {{> loginButtons}}
+            {{#if currentUser}}-->
+
       <label class="hide-completed">
         <input type="checkbox" checked="{{hideCompleted}}" />
         Hide Completed Tasks
       </label>
-
-     {{> loginButtons}}
-            {{#if currentUser}}
 
         <form class="new-task">
         	<p class="Paragtitle">Personal data</p>
@@ -155,24 +157,10 @@
 		  			<td colspan=2><input type="text" id="euraccname" placeholder="Type your account name" /></td>
 		  		</tr>
 		  	</table>
-		  		   
-		  		   <!--Last name: <br>
-		  		   Position: <br>
-		  		   Phone number: +41 </p>
-		  	</section>
-        	
-        	<section class="input-col clearfix">
-        	<input type="text" name="text" placeholder="Type your first name" />
-        	<p>
-        		<input type="text" id="fname" placeholder="Type your first name" /><br>
-		    	<input type="text" id="lname" placeholder="Type your family name" /><br>
-		    	<input type="text" id="position"><br>
-		    	<input type="number" id="phone"></p>
-		    </section>-->
         </form>
 
 
-      {{/if}}
+     <!-- {{/if}}-->
     </header>
     
     <ul>
