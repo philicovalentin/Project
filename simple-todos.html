@@ -159,7 +159,7 @@
 		  		</tr>
 		  	</table>
         </form>
-        <br><br>
+        <br><br><br><br>
 		</section>
 
 		<section class="cv">
@@ -176,6 +176,36 @@
       		{{/each}}
     	</ul>
     	</section>
+    	<br><br>
+
+    	<section class="degrees">
+		<p class="Paragtitle">Degrees <!--({{incompleteCount}})--></p>
+		<form class="new-degree">
+        	<textarea rows="4" cols="50"></textarea>
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each degrees}}
+        	{{> degree}}
+      		{{/each}}
+    	</ul>
+    	</section>
+    	<br><br>
+
+    	<section class="experiences">
+		<p class="Paragtitle">Professional experience <!--({{incompleteCount}})--></p>
+		<form class="new-experience">
+        	<textarea rows="4" cols="50"></textarea>
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each experiences}}
+        	{{> experience}}
+      		{{/each}}
+    	</ul>
+    	</section>
 
      <!-- {{/if}}-->
     </header>
@@ -184,8 +214,25 @@
   </div>
 </body>
 
-<template name="language">
-  
+<template name="language"> 
+  <!--<li class="{{#if checked}}checked{{/if}}">-->
+    <li>
+    <button class="delete">&times;</button>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{text}}</span>
+  </li>
+</template>
+
+<template name="degree"> 
+  <!--<li class="{{#if checked}}checked{{/if}}">-->
+    <li>
+    <button class="delete">&times;</button>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{text}}</span>
+  </li>
+</template>
+
+<template name="experience"> 
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
