@@ -5,6 +5,7 @@
   <div class="container">
     
     <header>
+    	<section class="profile">
       <h1>Employee Profile <!--({{incompleteCount}})--></h1>
       
 
@@ -12,10 +13,10 @@
    <!--  {{> loginButtons}}
             {{#if currentUser}}-->
 
-      <label class="hide-completed">
+    <!--  <label class="hide-completed">
         <input type="checkbox" checked="{{hideCompleted}}" />
         Hide Completed Tasks
-      </label>
+      </label>-->
 
         <form class="new-task">
         	<p class="Paragtitle">Personal data</p>
@@ -37,7 +38,7 @@
 		  		<tr>
 		  			<td>Nationality</td>
 		  			<td><input type="text" id="nationality" placeholder="Type your nationality" /></td>
-		  			<td align=middle>Source tax?<input  type="checkbox" checked="{{sourcetaxed}}" /></td>
+		  			<td align=middle><input  type="checkbox" checked="{{sourcetaxed}}" /><span>Source tax?</span></td>
 		  		</tr>
 		  		<tr>
 		  			<td>Domicile number: +41(0)</td>
@@ -158,24 +159,37 @@
 		  		</tr>
 		  	</table>
         </form>
+        <br><br>
+		</section>
 
+		<section class="cv">
+		<h1>CV inputs <!--({{incompleteCount}})--></h1>
+		<p class="Paragtitle">Language skills</p>
+		<form class="new-language">
+        	<input type="text" name="text" placeholder="Type to add a new language" />
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each languages}}
+        	{{> language}}
+      		{{/each}}
+    	</ul>
+    	</section>
 
      <!-- {{/if}}-->
     </header>
     
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
+    
   </div>
 </body>
 
-<template name="task">
+<template name="language">
   
-  <li class="{{#if checked}}checked{{/if}}">
+  <!--<li class="{{#if checked}}checked{{/if}}">-->
+    <li>
     <button class="delete">&times;</button>
         <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+    <span class="text">{{text}}</span>
   </li>
 </template>

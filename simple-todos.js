@@ -1,27 +1,27 @@
-Tasks = new Mongo.Collection("tasks");
+Languages = new Mongo.Collection("languages");
 if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
 
-    tasks: function () {
+    languages: function () {
 
-      if (Session.get("hideCompleted")) {
+      /*if (Session.get("hideCompleted")) {
 
-        // If hide completed is checked, filter tasks
+        // If hide completed is checked, filter tasks*/
 
-        return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
+       return Languages.find({checked: {$ne: true}});
 
-      } else {
+      /*} else {
 
         // Otherwise, return all of the tasks
 
-        return Tasks.find({}, {sort: {createdAt: -1}});
+        return Tasks.find({},/*{sort: {createdAt: -1}});*/
 
-      }
+      /*}*/
 
     },
 
-    hideCompleted: function () {
+    /*hideCompleted: function () {
 
       return Session.get("hideCompleted");
     },
@@ -30,19 +30,19 @@ if (Meteor.isClient) {
 
       return Tasks.find({checked: {$ne: true}}).count();
 
-    }
+    }*/
 
   });
 
   
 Template.body.events({
-    "submit .new-task": function (event) {
+    "submit .new-language": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
       // Get value from form element
       var text = event.target.text.value;
       // Insert a task into the collection
-            Tasks.insert({
+            Languages.insert({
 
         text: text,
 
@@ -50,7 +50,7 @@ Template.body.events({
 
         owner: Meteor.userId(),           // _id of logged in user
 
-        username: Meteor.user().username  // username of logged in user
+        /*username: Meteor.user().username*/  // username of logged in user
 
       });
       // Clear form
@@ -58,23 +58,23 @@ Template.body.events({
 
     },
 
-    "change .hide-completed input": function (event) {
+    /*"change .hide-completed input": function (event) {
 
       Session.set("hideCompleted", event.target.checked);
 
-    }
+    }*/
 
   });
   
-Template.task.events({
+Template.language.events({
   "click .toggle-checked": function () {
     // Set the checked property to the opposite of its current value
-    Tasks.update(this._id, {
+    Languages.update(this._id, {
       $set: {checked: ! this.checked}
     });
   },
   "click .delete": function () {
-    Tasks.remove(this._id);
+    Languages.remove(this._id);
   }
 });
  
