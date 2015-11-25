@@ -6,7 +6,67 @@
     
     <header>
     	<section class="profile">
-      <h1>Employee Profile <!--({{incompleteCount}})--></h1>
+    		{{> addPersonalInfo}}
+		</section>
+
+		<section class="cv">
+		<h1>CV inputs <!--({{incompleteCount}})--></h1>
+		<p class="Paragtitle">Language skills</p>
+		<form class="new-language">
+        	<input type="text" name="text" placeholder="Type to add a new language" />
+        	<input type="text" name="skill">
+        	<input type="submit" class="addlang" value="Add language">
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each languages}}
+        	{{> language}}
+      		{{/each}}
+    	</ul>
+    	</section>
+    	<br><br>
+
+    	<section class="degrees">
+		<p class="Paragtitle">Degrees <!--({{incompleteCount}})--></p>
+		<form class="new-degree">
+        	<input type="date"><br>
+        	<input type="text" placeholder="Type the diploma title" /><br>
+        	<input type="text" placeholder="Type the university name">
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each degrees}}
+        	{{> degree}}
+      		{{/each}}
+    	</ul>
+    	</section>
+    	<br><br>
+
+    	<section class="experiences">
+		<p class="Paragtitle">Professional experience <!--({{incompleteCount}})--></p>
+		<form class="new-experience">
+        	<textarea rows="4" cols="50" name="text"></textarea>
+      	</form>
+      	<br>
+
+      	<ul>
+      		{{#each experiences}}
+        	{{> experience}}
+      		{{/each}}
+    	</ul>
+    	</section>
+
+     <!-- {{/if}}-->
+    </header>
+    
+    
+  </div>
+</body>
+
+<template name="addPersonalInfo">
+	      <h1>Employee Profile <!--({{incompleteCount}})--></h1>
       
 
 
@@ -160,63 +220,7 @@
 		  	</table>
         </form>
         <br><br><br><br>
-		</section>
-
-		<section class="cv">
-		<h1>CV inputs <!--({{incompleteCount}})--></h1>
-		<p class="Paragtitle">Language skills</p>
-		<form class="new-language">
-        	<input type="text" name="text" placeholder="Type to add a new language" />
-        	<input type="text" name="skill">
-        	<input type="submit" class="addlang" value="Add language">
-      	</form>
-      	<br>
-
-      	<ul>
-      		{{#each languages}}
-        	{{> language}}
-      		{{/each}}
-    	</ul>
-    	</section>
-    	<br><br>
-
-    	<section class="degrees">
-		<p class="Paragtitle">Degrees <!--({{incompleteCount}})--></p>
-		<form class="new-degree">
-        	<input type="date"><br>
-        	<input type="text" placeholder="Type the diploma title" /><br>
-        	<input type="text" placeholder="Type the university name">
-      	</form>
-      	<br>
-
-      	<ul>
-      		{{#each degrees}}
-        	{{> degree}}
-      		{{/each}}
-    	</ul>
-    	</section>
-    	<br><br>
-
-    	<section class="experiences">
-		<p class="Paragtitle">Professional experience <!--({{incompleteCount}})--></p>
-		<form class="new-experience">
-        	<textarea rows="4" cols="50" name="text"></textarea>
-      	</form>
-      	<br>
-
-      	<ul>
-      		{{#each experiences}}
-        	{{> experience}}
-      		{{/each}}
-    	</ul>
-    	</section>
-
-     <!-- {{/if}}-->
-    </header>
-    
-    
-  </div>
-</body>
+</template>
 
 <template name="language"> 
   <!--<li class="{{#if checked}}checked{{/if}}">-->
