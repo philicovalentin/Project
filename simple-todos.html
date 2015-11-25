@@ -13,11 +13,13 @@
     		{{> addPersonalInfo}}
 		</section>
 
+<!--           CV section             -->
+
 		<section class="cv">
 		<h1>CV inputs</h1>
 		<p class="Paragtitle">Language skills</p>
 		<form class="new-language">
-        	<input type="text" name="text" placeholder="Type to add a new language" />
+        	<input type="text" name="langue" placeholder="Type to add a new language" />
         	<input type="text" name="skill" placeholder="Type to add the level">
         	<input type="submit" value="Add a language">
       	</form>
@@ -30,15 +32,17 @@
     	</section>
     	<br><br>
 
+<!--           Degree section             -->
+
     	<section class="degrees">
-		<p class="Paragtitle">Degrees <!--({{incompleteCount}})--></p>
+		<p class="Paragtitle">Diplomas</p>
 		<form class="new-degree">
-        	<input type="date"><br>
-        	<input type="text" placeholder="Type the diploma title" /><br>
-        	<input type="text" placeholder="Type the university name">
+        	<input type="text" name="ddate" placeholder="MM.YYYY"><br>
+        	<input type="text" name="dip" placeholder="Type the diploma title" /><br>
+        	<input type="text" name="uni" placeholder="Type the university name">
+        	<input type="submit" value="Add a diploma">
       	</form>
       	<br>
-
       	<ul>
       		{{#each degrees}}
         	{{> degree}}
@@ -47,13 +51,22 @@
     	</section>
     	<br><br>
 
+<!--        Professional experience section        -->
+
     	<section class="experiences">
-		<p class="Paragtitle">Professional experience <!--({{incompleteCount}})--></p>
+		<p class="Paragtitle">Professional experience</p>
 		<form class="new-experience">
-        	<textarea rows="4" cols="50" name="text"></textarea>
+        	<input type="text" name="stdate" placeholder="Starting date: MM.YYYY">
+        	<input type="text" name="enddate" placeholder="End date: MM.YYYY/now">
+        	<input type="text" name="company" placeholder="Company">
+        	<input type="text" name="jobtitle" placeholder="Job title">
+        	<br><br>
+        	<p>Description</p>
+        	<textarea rows="4" cols="50" name="explanation"></textarea>
+        	<input type="submit" value="Add an experience">
+
       	</form>
       	<br>
-
       	<ul>
       		{{#each experiences}}
         	{{> experience}}
@@ -219,7 +232,7 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-    <span class="text">{{text}} :{{skill}}</span>
+    <span class="text">{{langue}} : {{skill}}</span>
   </li>
 </template>
 
@@ -227,7 +240,7 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-    <span class="text">{{text}}</span>
+    <span class="text">{{ddate}}: {{dip}} : {{uni}}</span>
   </li>
 </template>
 
@@ -235,6 +248,6 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-    <span class="text">{{text}}</span>
+    <span class="text">{{stdate}} - {{enddate}}: {{company}} : {{jobtitle}} : {{explanation}}</span>
   </li>
 </template>

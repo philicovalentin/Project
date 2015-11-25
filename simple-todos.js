@@ -116,75 +116,81 @@ Template.addPersonalInfo.events({
 Template.body.events({
     "submit .new-language": function (event) {
       // Prevent default browser form submit
-      if (event.target.text.value=="" || event.target.skill.value=="")
+      if (event.target.langue.value=="" || event.target.skill.value=="")
         {return false;}
       else {
       event.preventDefault();
       // Get value from form element
-      var text = event.target.text.value;
+      var langue = event.target.langue.value;
       var skill= event.target.skill.value;
       // Insert a task into the collection
         Languages.insert({
-          text: text,
+          langue: langue,
           skill: skill,
           createdAt: new Date(),            // current time
           owner: Meteor.userId(),           // _id of logged in user
         /*username: Meteor.user().username*/  // username of logged in user
       });
       // Clear form
-      event.target.text.value = "";
+      event.target.langue.value = "";
       event.target.skill.value = "";
     }},
 
-    /*"change .hide-completed input": function (event) {
-
-      Session.set("hideCompleted", event.target.checked);
-
-    }*/
      "submit .new-degree": function (event) {
       // Prevent default browser form submit
+      if (event.target.ddate.value=="" || event.target.dip.value=="" || event.target.uni.value=="")
+        {return false;}
+      else {
       event.preventDefault();
       // Get value from form element
-      var text = event.target.text.value;
+      var ddate = event.target.ddate.value;
+      var dip = event.target.dip.value;
+      var uni = event.target.uni.value;
       // Insert a task into the collection
-            Degrees.insert({
-
-        text: text,
-
-        createdAt: new Date(),            // current time
-
-        owner: Meteor.userId(),           // _id of logged in user
-
-        /*username: Meteor.user().username*/  // username of logged in user
-
+        Degrees.insert({
+          ddate: ddate,
+          dip: dip,
+          uni: uni,
+          createdAt: new Date(), 
+          owner: Meteor.userId(),
+        /*username: Meteor.user().username*/
       });
       // Clear form
-      event.target.text.value = "";
-
-    },
+      event.target.ddate.value = "";
+      event.target.dip.value = "";
+      event.target.uni.value = "";
+    }},
 
      "submit .new-experience": function (event) {
       // Prevent default browser form submit
+      if (event.target.stdate.value=="" || event.target.enddate.value=="" || event.target.company.value=="" || event.target.jobtitle.value=="" || event.target.explanation.value=="")
+        {return false;}
+      else {
       event.preventDefault();
       // Get value from form element
-      var text = event.target.text.value;
+      var stdate = event.target.stdate.value;
+      var enddate = event.target.enddate.value;
+      var company = event.target.company.value;
+      var jobtitle = event.target.jobtitle.value;
+      var explanation = event.target.explanation.value;
       // Insert a task into the collection
-            Experiences.insert({
-
-        text: text,
-
-        createdAt: new Date(),            // current time
-
-        owner: Meteor.userId(),           // _id of logged in user
-
-        /*username: Meteor.user().username*/  // username of logged in user
-
+      Experiences.insert({
+        stdate: stdate,
+        enddate: enddate,
+        company: company,
+        jobtitle: jobtitle,
+        explanation: explanation,
+        createdAt: new Date(),
+        owner: Meteor.userId(),   
+        /*username: Meteor.user().username*/
       });
       // Clear form
-      event.target.text.value = "";
-
-    },
-
+      event.target.stdate.value = "";
+      event.target.enddate.value = "";
+      event.target.company.value = "";
+      event.target.jobtitle.value = "";
+      event.target.explanation.value = "";
+    }},
   });
   
 Template.language.events({  
