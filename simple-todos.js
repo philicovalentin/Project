@@ -21,17 +21,16 @@ if (Meteor.isClient) {
 
 Template.addPersonalInfo.events({
   'submit form': function(event){
-    console.log("Form submitted");
-    console.log(event.type);
+
     event.preventDefault();
-    var finame=event.target.text.value;
-    var faname=event.target.text.value;
-    var street=event.target.text.value;
-    var zip=event.target.text.value;
-    var city=event.target.text.value;
-    var nationality=event.target.text.value;
+    /*var finame=event.target.finame;
+    var faname=event.target.faname;
+    var street=event.target.street;
+    var zip=event.target.zip;
+    var city=event.target.city;
+    var nationality=event.target.nationality;
     /*var Source tax=event.target.text.value*/
-    var dnumber=event.target.text.value;
+    /*var dnumber=event.target.text.value;
     var mnumber=event.target.text.value;
     var birth=event.target.date.value;
     var ahv=event.target.text.value;
@@ -61,17 +60,19 @@ Template.addPersonalInfo.events({
     var eurbankplace=event.target.text.value;
     var eurbankzip=event.target.text.value;
     var euriban=event.target.text.value;
-    var euraccnbr=event.target.text.value;
-    var euraccname=event.target.text.value;
+    var euraccnbr=event.target.text.value;*/
+    var euraccname=event.target.euraccname.value;
     
+   
+
     Personalinfo.insert({
-     faname: fname,
+     /*faname: fname,
      street: street,
      zip: zip,
      city: city,
      nationality: nationality,
     /* Source tax=event.target.text.value*/
-     dnumber: dnumber,
+     /*dnumber: dnumber,
      mnumber: mnumber,
      birth: birth,
      ahv: ahv,
@@ -101,34 +102,39 @@ Template.addPersonalInfo.events({
      eurbankplace: eurbankplace,
      eurbankzip: eurbankzip,
      euriban: euriban,
-     euraccnbr: euraccnbr,
+     euraccnbr: euraccnbr,*/
      euraccname: euraccname,
      createdAt: new Date(),
      owner: Meteor.userId(),
      /*username: Meteor.user().username*/  // username of logged in user
     });
-    event.target.text.value= "";
+    console.log(this.collection);
+    event.target.euraccname.value= "";
   },
 })
   
 Template.body.events({
     "submit .new-language": function (event) {
       // Prevent default browser form submit
+      if (event.target.text.value=="" || event.target.skill.value=="")
+        {return false;}
+      else {
       event.preventDefault();
       // Get value from form element
       var text = event.target.text.value;
       var skill= event.target.skill.value;
       // Insert a task into the collection
-            Languages.insert({
-        text: text,
-        skill: skill,
-        createdAt: new Date(),            // current time
-        owner: Meteor.userId(),           // _id of logged in user
+        Languages.insert({
+          text: text,
+          skill: skill,
+          createdAt: new Date(),            // current time
+          owner: Meteor.userId(),           // _id of logged in user
         /*username: Meteor.user().username*/  // username of logged in user
       });
       // Clear form
       event.target.text.value = "";
-    },
+      event.target.skill.value = "";
+    }},
 
     /*"change .hide-completed input": function (event) {
 
@@ -181,31 +187,7 @@ Template.body.events({
 
   });
   
-Template.language.events({
-  "click .addlang":function () {
-    event.preventDefault();
-      // Get value from form element
-      var text = event.target.text.value;
-      var skill= event.target.skill.value;
-      // Insert a task into the collection
-            Languages.insert({
-
-        text: text,
-
-        skill: skill,
-
-        createdAt: new Date(),            // current time
-
-        owner: Meteor.userId(),           // _id of logged in user
-
-        /*username: Meteor.user().username*/  // username of logged in user
-
-      });
-      // Clear form
-      event.target.text.value = "";
-
-    },
-  
+Template.language.events({  
   "click .delete": function () {
     Languages.remove(this._id);
   }
