@@ -167,6 +167,8 @@
 		<p class="Paragtitle">Language skills</p>
 		<form class="new-language">
         	<input type="text" name="text" placeholder="Type to add a new language" />
+        	<input type="text" name="skill">
+        	<input type="submit" class="addlang" value="Add language">
       	</form>
       	<br>
 
@@ -181,7 +183,9 @@
     	<section class="degrees">
 		<p class="Paragtitle">Degrees <!--({{incompleteCount}})--></p>
 		<form class="new-degree">
-        	<textarea rows="4" cols="50"></textarea>
+        	<input type="date"><br>
+        	<input type="text" placeholder="Type the diploma title" /><br>
+        	<input type="text" placeholder="Type the university name">
       	</form>
       	<br>
 
@@ -196,7 +200,7 @@
     	<section class="experiences">
 		<p class="Paragtitle">Professional experience <!--({{incompleteCount}})--></p>
 		<form class="new-experience">
-        	<textarea rows="4" cols="50"></textarea>
+        	<textarea rows="4" cols="50" name="text"></textarea>
       	</form>
       	<br>
 
@@ -218,8 +222,7 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="text">{{text}}</span>
+    <span class="text">{{text}} :{{skill}}</span>
   </li>
 </template>
 
@@ -227,7 +230,6 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
     <span class="text">{{text}}</span>
   </li>
 </template>
@@ -236,7 +238,6 @@
   <!--<li class="{{#if checked}}checked{{/if}}">-->
     <li>
     <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
     <span class="text">{{text}}</span>
   </li>
 </template>
