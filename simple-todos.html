@@ -10,79 +10,7 @@
             {{#if currentUser}}-->
 
     	<section class="profile">
-    		{{> addPersonalInfo}}
-		</section>
-
-<!--           CV section             -->
-
-		<section class="cv">
-		<h1>CV inputs</h1>
-		<p class="Paragtitle">Language skills</p>
-		<form class="new-language">
-        	<input type="text" name="langue" placeholder="Type to add a new language" />
-        	<input type="text" name="skill" placeholder="Type to add the level">
-        	<input type="submit" value="Add a language">
-      	</form>
-      	<br>
-      	<ul>
-      		{{#each languages}}
-        	{{> language}}
-      		{{/each}}
-    	</ul>
-    	</section>
-    	<br><br>
-
-<!--           Degree section             -->
-
-    	<section class="degrees">
-		<p class="Paragtitle">Diplomas</p>
-		<form class="new-degree">
-        	<input type="text" name="ddate" placeholder="MM.YYYY"><br>
-        	<input type="text" name="dip" placeholder="Type the diploma title" /><br>
-        	<input type="text" name="uni" placeholder="Type the university name">
-        	<input type="submit" value="Add a diploma">
-      	</form>
-      	<br>
-      	<ul>
-      		{{#each degrees}}
-        	{{> degree}}
-      		{{/each}}
-    	</ul>
-    	</section>
-    	<br><br>
-
-<!--        Professional experience section        -->
-
-    	<section class="experiences">
-		<p class="Paragtitle">Professional experience</p>
-		<form class="new-experience">
-        	<input type="text" name="stdate" placeholder="Starting date: MM.YYYY">
-        	<input type="text" name="enddate" placeholder="End date: MM.YYYY/now">
-        	<input type="text" name="company" placeholder="Company">
-        	<input type="text" name="jobtitle" placeholder="Job title">
-        	<br><br>
-        	<p>Description</p>
-        	<textarea rows="4" cols="50" name="explanation"></textarea>
-        	<input type="submit" value="Add an experience">
-
-      	</form>
-      	<br>
-      	<ul>
-      		{{#each experiences}}
-        	{{> experience}}
-      		{{/each}}
-    	</ul>
-    	</section>
-
-     <!-- {{/if}}-->
-    </header>
-    
-    
-  </div>
-</body>
-
-<template name="addPersonalInfo">
-        <form class="new-task">
+    	  <form class="new-profile">
         	<p class="Paragtitle">Personal data</p>
         	<table border="1">
 		  		<tr>
@@ -158,17 +86,17 @@
         	<table class="text-col clearfix" border="1">
 		  		<tr>
 		  			<td>Name</td>
-		  			<td>Relation</td>
-		  			<td>Phone number</td>
-		  		</tr>
-		  		<tr>
 		  			<td><input type="text" name="em1name" placeholder="Type here" /></td>
-		  			<td><input type="text" name="relation1" placeholder="Type here" /></td>
-		  			<td><input type="text" name="phone1" placeholder="Type here" /></td>
+		  			<td><input type="text" name="em2name" placeholder="Type here" /></td>		  			
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" name="em2name" placeholder="Type here" /></td>
-		  			<td><input type="text" name="relation2" placeholder="Type here" /></td>
+		  			<td>Relation</td>
+		  			<td><input type="text" name="relation1" placeholder="Type here" /></td>
+		  			<td><input type="text" name="relation2" placeholder="Type here" /></td>		  			
+		  		</tr>
+		  		<tr>
+		  			<td>Phone number</td>
+		  			<td><input type="text" name="phone1" placeholder="Type here" /></td>
 		  			<td><input type="text" name="phone2" placeholder="Type here" /></td>
 		  		</tr>
 		  	</table>
@@ -226,6 +154,77 @@
 		  	<input type="submit" value="Submit your personal information">
         </form>
         <br><br><br><br>
+		</section>
+
+<!--           CV section             -->
+
+		<section class="cv">
+		<h1>CV inputs</h1>
+		<p class="Paragtitle">Language skills</p>
+		<form class="new-language">
+        	<input type="text" name="langue" placeholder="Type to add a new language" />
+        	<input type="text" name="skill" placeholder="Type to add the level">
+        	<input type="submit" value="Add a language">
+      	</form>
+      	<br>
+      	<ul>
+      		{{#each languages}}
+        	{{> language}}
+      		{{/each}}
+    	</ul>
+    	</section>
+    	<br><br>
+
+<!--           Degree section             -->
+
+    	<section class="degrees">
+		<p class="Paragtitle">Diplomas</p>
+		<form class="new-degree">
+        	<input type="text" name="ddate" placeholder="MM.YYYY"><br>
+        	<input type="text" name="dip" placeholder="Type the diploma title" /><br>
+        	<input type="text" name="uni" placeholder="Type the university name">
+        	<input type="submit" value="Add a diploma">
+      	</form>
+      	<br>
+      	<ul>
+      		{{#each degrees}}
+        	{{> degree}}
+      		{{/each}}
+    	</ul>
+    	</section>
+    	<br><br>
+
+<!--        Professional experience section        -->
+
+    	<section class="experiences">
+		<p class="Paragtitle">Professional experience</p>
+		<form class="new-experience">
+        	<input type="text" name="stdate" placeholder="Starting date: MM.YYYY">
+        	<input type="text" name="enddate" placeholder="End date: MM.YYYY/now">
+        	<input type="text" name="company" placeholder="Company">
+        	<input type="text" name="jobtitle" placeholder="Job title">
+        	<br><br>
+        	<p>Description</p>
+        	<textarea rows="4" cols="50" name="explanation"></textarea>
+        	<input type="submit" value="Add an experience">
+
+      	</form>
+      	<br>
+      	<ul>
+      		{{#each experiences}}
+        	{{> experience}}
+      		{{/each}}
+    	</ul>
+    	</section>
+
+     <!-- {{/if}}-->
+    </header>
+    
+    
+  </div>
+</body>
+
+<template name="personalinfo">
 </template>
 
 <template name="language"> 

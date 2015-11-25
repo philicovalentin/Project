@@ -1,4 +1,3 @@
-
 Personalinfo = new Mongo.Collection("personalinfo");
 Languages = new Mongo.Collection("languages");
 Degrees = new Mongo.Collection("degrees");
@@ -7,6 +6,9 @@ Experiences = new Mongo.Collection("experiences");
 if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
+    
+    personalinfo: function () {
+      return Personalinfo.find()},
 
     languages: function () {
        return Languages.find({checked: {$ne: true}});},
@@ -18,61 +20,65 @@ if (Meteor.isClient) {
       return Experiences.find({checked: {$ne: true}});},
 
   });
-
-Template.addPersonalInfo.events({
-  'submit form': function(event){
-
+  
+  
+Template.body.events({
+    "submit .new-profile": function (event) {
+      // Prevent default browser form submit
+      if (event.target.finame.value=="" && event.target.accname.value=="")
+        {return false;}
+      else {
     event.preventDefault();
-    /*var finame=event.target.finame;
-    var faname=event.target.faname;
-    var street=event.target.street;
-    var zip=event.target.zip;
-    var city=event.target.city;
-    var nationality=event.target.nationality;
-    /*var Source tax=event.target.text.value*/
-    /*var dnumber=event.target.text.value;
-    var mnumber=event.target.text.value;
-    var birth=event.target.date.value;
-    var ahv=event.target.text.value;
-    var sdate=event.target.date.value;
-    var mdate=event.target.date.value;
-    var sfaname=event.target.text.value;
-    var sfiname=event.target.text.value;
-    var ch1name=event.target.text.value;
-    var ch1bdate=event.target.date.value;
-    var ch2name=event.target.text.value;
-    var ch2bdate=event.target.date.value;
-    var ch3name=event.target.text.value;
-    var ch3bdate=event.target.date.value;
-    var em1name=event.target.text.value;
-    var relation1=event.target.text.value;
-    var phone1=event.target.text.value;
-    var em2name=event.target.text.value;
-    var relation2=event.target.text.value;
-    var phone2=event.target.text.value;
-    var bankname=event.target.text.value;
-    var bankplace=event.target.text.value;
-    var bankzip=event.target.text.value;
-    var iban=event.target.text.value;
-    var accnbr=event.target.text.value;
-    var accname=event.target.text.value;
-    var eurbankname=event.target.text.value;
-    var eurbankplace=event.target.text.value;
-    var eurbankzip=event.target.text.value;
-    var euriban=event.target.text.value;
-    var euraccnbr=event.target.text.value;*/
+    var finame=event.target.finame.value;
+    var faname=event.target.faname.value;
+    var street=event.target.street.value;
+    var zip=event.target.zip.value;
+    var city=event.target.city.value;
+    var nationality=event.target.nationality.value;
+    /*var sourcetax=(event.target.sourcetaxed==checked)*/
+    var dnumber=event.target.dnumber.value;
+    var mnumber=event.target.mnumber.value;
+    var birth=event.target.birth.value;
+    var ahv=event.target.ahv.value;
+    var sdate=event.target.sdate.value;
+    var mdate=event.target.mdate.value;
+    var sfaname=event.target.sfaname.value;
+    var sfiname=event.target.sfiname.value;
+    var ch1name=event.target.ch1name.value;
+    var ch1bdate=event.target.ch1bdate.value;
+    var ch2name=event.target.ch2name.value;
+    var ch2bdate=event.target.ch2bdate.value;
+    var ch3name=event.target.ch3name.value;
+    var ch3bdate=event.target.ch3bdate.value;
+    var em1name=event.target.em1name.value;
+    var relation1=event.target.relation1.value;
+    var phone1=event.target.phone1.value;
+    var em2name=event.target.em2name.value;
+    var relation2=event.target.relation2.value;
+    var phone2=event.target.phone2.value;
+    var bankname=event.target.bankname.value;
+    var bankplace=event.target.bankplace.value;
+    var bankzip=event.target.bankzip.value;
+    var iban=event.target.iban.value;
+    var accnbr=event.target.accnbr.value;
+    var accname=event.target.accname.value;
+    var eurbankname=event.target.eurbankname.value;
+    var eurbankplace=event.target.eurbankplace.value;
+    var eurbankzip=event.target.eurbankzip.value;
+    var euriban=event.target.euriban.value;
+    var euraccnbr=event.target.euraccnbr.value;
     var euraccname=event.target.euraccname.value;
     
    
 
     Personalinfo.insert({
-     /*faname: fname,
+     faname: faname,
      street: street,
      zip: zip,
      city: city,
      nationality: nationality,
-    /* Source tax=event.target.text.value*/
-     /*dnumber: dnumber,
+     /*sourcetax: sourcetax,*/
+     dnumber: dnumber,
      mnumber: mnumber,
      birth: birth,
      ahv: ahv,
@@ -102,21 +108,59 @@ Template.addPersonalInfo.events({
      eurbankplace: eurbankplace,
      eurbankzip: eurbankzip,
      euriban: euriban,
-     euraccnbr: euraccnbr,*/
+     euraccnbr: euraccnbr,
      euraccname: euraccname,
      createdAt: new Date(),
      owner: Meteor.userId(),
      /*username: Meteor.user().username*/  // username of logged in user
     });
-    console.log(this.collection);
-    event.target.euraccname.value= "";
-  },
-})
-  
-Template.body.events({
+
+    event.target.finame.value;
+    event.target.faname.value;
+    event.target.street.value;
+    event.target.zip.value;
+    event.target.city.value;
+    event.target.nationality.value;
+    /*if(sourcetax==true){sourcetaxed=checked};*/
+    event.target.dnumber.value;
+    event.target.mnumber.value;
+    event.target.birth.value;
+    event.target.ahv.value;
+    event.target.sdate.value;
+    event.target.mdate.value;
+    event.target.sfaname.value;
+    event.target.sfiname.value;
+    event.target.ch1name.value;
+    event.target.ch1bdate.value;
+    event.target.ch2name.value;
+    event.target.ch2bdate.value;
+    event.target.ch3name.value;
+    event.target.ch3bdate.value;
+    event.target.em1name.value;
+    event.target.relation1.value;
+    event.target.phone1.value;
+    event.target.em2name.value;
+    event.target.relation2.value;
+    event.target.phone2.value;
+    event.target.bankname.value;
+    event.target.bankplace.value;
+    event.target.bankzip.value;
+    event.target.iban.value;
+    event.target.accnbr.value;
+    event.target.accname.value;
+    event.target.eurbankname.value;
+    event.target.eurbankplace.value;
+    event.target.eurbankzip.value;
+    event.target.euriban.value;
+    event.target.euraccnbr.value;
+    event.target.euraccname.value;
+  }},
+
+
+
     "submit .new-language": function (event) {
       // Prevent default browser form submit
-      if (event.target.langue.value=="" || event.target.skill.value=="")
+      if (event.target.langue.value=="" && event.target.skill.value=="")
         {return false;}
       else {
       event.preventDefault();
@@ -138,7 +182,7 @@ Template.body.events({
 
      "submit .new-degree": function (event) {
       // Prevent default browser form submit
-      if (event.target.ddate.value=="" || event.target.dip.value=="" || event.target.uni.value=="")
+      if (event.target.ddate.value=="" && event.target.dip.value=="" && event.target.uni.value=="")
         {return false;}
       else {
       event.preventDefault();
@@ -163,7 +207,7 @@ Template.body.events({
 
      "submit .new-experience": function (event) {
       // Prevent default browser form submit
-      if (event.target.stdate.value=="" || event.target.enddate.value=="" || event.target.company.value=="" || event.target.jobtitle.value=="" || event.target.explanation.value=="")
+      if (event.target.stdate.value=="" && event.target.enddate.value=="" && event.target.company.value=="" && event.target.jobtitle.value=="" && event.target.explanation.value=="")
         {return false;}
       else {
       event.preventDefault();
