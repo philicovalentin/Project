@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 accounts-ui
 accounts-password
 mrt:bootstrap-3
+bootstrap

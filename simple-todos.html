@@ -6,8 +6,8 @@
     
     <header>
     	<h1>Employee Profile</h1>
-   <!--  {{> loginButtons}}
-            {{#if currentUser}}-->
+      {{> loginButtons align="right"}}
+            {{#if currentUser}}
 
     	<section class="profile">
     	  <form class="new-profile">
@@ -30,7 +30,7 @@
 		  		<tr>
 		  			<td>Nationality</td>
 		  			<td><input type="text" name="nationality" placeholder="Type your nationality" /></td>
-		  			<td align=middle><input  type="checkbox" checked="{{sourcetaxed}}" /><span>Source tax?</span></td>
+		  			<td align=middle><input  type="checkbox" name="sourcetaxed" checked="{{sourcetaxed}}" /><span>Source tax?</span></td>
 		  		</tr>
 		  		<tr>
 		  			<td>Domicile number: +41(0)</td>
@@ -53,6 +53,7 @@
 		  			<td colspan=2><input type="date" name="sdate" placeholder="Type your start date" /></td>
 		  		</tr>
 		  	</table>
+		  	<br>
 
 		  	<p class="Paragtitle">Family data</p>
         	<table border="1">
@@ -81,6 +82,7 @@
 		  			<td><input type="date" name="ch3bdate" placeholder="Type your child 3 birth date" /></td>
 		  		</tr>
 		  	</table>
+		  	<br>
 
 		  	<p class="Paragtitle">Emergency</p>
         	<table class="text-col clearfix" border="1">
@@ -100,6 +102,7 @@
 		  			<td><input type="text" name="phone2" placeholder="Type here" /></td>
 		  		</tr>
 		  	</table>
+		  	<br>
 
 		  	<p class="Paragtitle">Bank account for salary payments (CHF)</p>
         	<table border="1">
@@ -125,6 +128,7 @@
 		  			<td colspan=2><input type="text" name="accname" placeholder="Type your account name" /></td>
 		  		</tr>
 		  	</table>
+		  	<br>
 
 		  	<p class="Paragtitle">Bank account for salary payments (EUR)</p>
         	<table border="1">
@@ -153,7 +157,7 @@
 		  	<br>
 		  	<input type="submit" value="Submit your personal information">
         </form>
-        <br><br><br><br>
+        <br><br>
 		</section>
 
 <!--           CV section             -->
@@ -217,7 +221,7 @@
     	</ul>
     	</section>
 
-     <!-- {{/if}}-->
+     {{/if}}
     </header>
     
     

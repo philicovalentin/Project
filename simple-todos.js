@@ -35,7 +35,7 @@ Template.body.events({
     var zip=event.target.zip.value;
     var city=event.target.city.value;
     var nationality=event.target.nationality.value;
-    /*var sourcetax=(event.target.sourcetaxed==checked)*/
+    var sourcetax=(event.target.sourcetaxed===true);
     var dnumber=event.target.dnumber.value;
     var mnumber=event.target.mnumber.value;
     var birth=event.target.birth.value;
@@ -77,7 +77,7 @@ Template.body.events({
      zip: zip,
      city: city,
      nationality: nationality,
-     /*sourcetax: sourcetax,*/
+     sourcetax: sourcetax,
      dnumber: dnumber,
      mnumber: mnumber,
      birth: birth,
