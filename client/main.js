@@ -1,8 +1,3 @@
-Personalinfo = new Mongo.Collection("personalinfo");
-Languages = new Mongo.Collection("languages");
-Degrees = new Mongo.Collection("degrees");
-Experiences = new Mongo.Collection("experiences");
-
 if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
@@ -21,7 +16,34 @@ if (Meteor.isClient) {
 
   });
   
+  Template.register.events({
+        'submit form': function(event) {
+            event.preventDefault();
+            var emailVar = event.target.registerEmail.value;
+            var passwordVar = event.target.registerPassword.value;
+            Accounts.createUser({
+            email: emailVar,
+            password: passwordVar
+            });
+        }
+    });
   
+  Template.login.events({
+    'submit form': function(event) {
+        event.preventDefault();
+        var emailVar = event.target.loginEmail.value;
+        var passwordVar = event.target.loginPassword.value;
+        Meteor.loginWithPassword(emailVar, passwordVar);
+    }
+  });
+
+    Template.dashboard.events({
+    'click .logout': function(event){
+        event.preventDefault();
+        Meteor.logout();
+    }
+    });
+
 Template.body.events({
     "submit .new-profile": function (event) {
       // Prevent default browser form submit
@@ -254,12 +276,6 @@ Template.experience.events({
     Experiences.remove(this._id);
   }
 });
- 
 
-
-  Accounts.ui.config({
-
-    passwordSignupFields: "EMAIL_ONLY"
-
-  });
 }
+
